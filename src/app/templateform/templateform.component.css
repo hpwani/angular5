@@ -1,0 +1,7 @@
+body {
+    margin: 0 auto !important;
+    padding: 10px !important;
+    width: 80% !important;
+    border: 5px solid pink;
+    text-align: center !important;
+}

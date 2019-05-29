@@ -1,0 +1,11 @@
+html {
+    background-color: #838ec044;
+}
+
+body {
+    margin: 0 auto !important;
+    padding: 10px !important;
+    width: 80% !important;
+    border: 5px solid gray;
+    background-color: #e99fe56c !important;
+}
