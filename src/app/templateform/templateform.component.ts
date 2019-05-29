@@ -11,5 +11,8 @@ export class TemplateformComponent implements OnInit {
 
   ngOnInit() {
   }
+  Register(regForm: any) {
+    console.log(regForm);
+  }
 
 }

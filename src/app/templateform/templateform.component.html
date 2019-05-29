@@ -1,5 +1,24 @@
 <body>
-    <p>
-        templateform works!
-    </p>
+    <h1>Template Form</h1>
+    <div class="container">
+        <div class="row">
+            <div class="form-bg">
+                <form #regForm='ngForm' (ngSubmit)="Register(regForm)">
+                    <h2>Registration Form</h2><br>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="First Name" name="firstname" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Last Name" name="lastname" ngModel>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Email" name="email" ngModel>
+                    </div><br>
+                    <div class="align-center">
+                        <button type="submit" id="Register" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
