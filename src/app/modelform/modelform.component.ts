@@ -26,8 +26,9 @@ export class ModelformComponent implements OnInit {
   ngOnInit() {
   }
 
-  postData(signupform: NgForm) {
-    console.log(signupform.controls);
+  postData(signupform: any) {
+    this.FirstName = signupform.controls.fname.value;
+    console.log(this.FirstName);
   }
 
 }
