@@ -12,7 +12,10 @@ export class TemplateformComponent implements OnInit {
   ngOnInit() {
   }
   Register(regForm: any) {
-    console.log(regForm);
+    var fname = regForm.controls.firstname.value;
+    var lname = regForm.controls.lastname.value;
+    var email = regForm.controls.email.value;
+    console.log(fname+' '+lname+' '+email);
   }
 
 }

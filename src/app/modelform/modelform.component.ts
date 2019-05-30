@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, FormBuilder, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-modelform',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModelformComponent implements OnInit {
 
-  constructor() { }
+  signupform: FormGroup;
+  FirstName: string="";
+  LastName: string="";
+  Email: string="";
+  Password: string="";
+
+  constructor(private frmbuilder: FormBuilder) {
+    this.signupform = frmbuilder.group({
+      fname: new FormControl(),
+      lname: new FormControl(),
+      emailid: new FormControl(),
+      userpassword: new FormControl()
+    });
+   }
 
   ngOnInit() {
+  }
+
+  postData(signupform: NgForm) {
+    console.log(signupform.controls);
   }
 
 }

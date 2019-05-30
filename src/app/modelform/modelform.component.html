@@ -1,5 +1,26 @@
 <body>
-    <p>
-        modelform works!
-    </p>
+    <h1>Model Form</h1>
+    <div class="container">
+        <div class="row">
+            <div class="form-bg">
+                <form [formGroup]='signupform' (ngSubmit)="postData(signupform)">
+                    <div class="form-group">
+                        <input type="text" formControlName="fname" placeholder="First Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="lname" placeholder="Last Name">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" formControlName="emailid" placeholder="Your Email">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" formControlName="userpassword" placeholder="Your Password">
+                    </div>
+                    <div>
+                        <input type="submit" value="Post Data">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
