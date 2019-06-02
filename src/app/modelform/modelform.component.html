@@ -5,7 +5,7 @@
             <div class="form-bg">
                 <form [formGroup]='signupform' (ngSubmit)="postData(signupform)">
                     <div class="form-group" [ngClass]="{'has-error' : signupform.get('fname').errors &&
-                    (signupform.get('fname').ng-touched || signupform.get('fname').dirty)}">
+                    (signupform.get('fname').touched || signupform.get('fname').dirty)}">
                         <input type="text" formControlName="fname" placeholder="First Name">
                         <div class="help-block" *ngIf="signupform.get('fname').errors &&
                         (signupform.get('fname').touched || signupform.get('fname').dirty)">
