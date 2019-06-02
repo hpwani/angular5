@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="form-bg">
-                <form [formGroup]='signupform' (ngSubmit)="postData(signupform)">
+                <form [formGroup]='signupform'>
                     <div class="form-group" [ngClass]="{'has-error' : signupform.get('fname').errors &&
                     (signupform.get('fname').touched || signupform.get('fname').dirty)}">
                         <input type="text" formControlName="fname" placeholder="First Name">
@@ -24,10 +24,26 @@
                         <input type="password" formControlName="userpassword" placeholder="Your Password">
                     </div>
                     <div>
-                        <input type="submit" value="Post Data" [disabled]="!signupform.valid">
+                        <input type="submit" value="Post Data" (click)="postData()" [disabled]="!signupform.valid">
+                        <span>
+                          <input type="reset" value="Reset" (click)="resetData()">
+                        </span>
+                        <span>
+                          <input type="submit" value="Set Value" (click)="filldata()">
+                        </span>
+                        <span>
+                          <input type="submit" value="Patch Value" (click)="fillvalue()">
+                        </span>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <!-- <div class="container">
+        <div class="row">
+            <tr *ngFor="let d of data">
+                <td>{{d.fname}}</td>
+            </tr>
+        </div>
+    </div> -->
 </body>

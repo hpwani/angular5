@@ -6,16 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./templateform.component.css']
 })
 export class TemplateformComponent implements OnInit {
-
+  fname: string;
+  lname: string;
+  email: string;
+  num: string;
   constructor() { }
 
   ngOnInit() {
   }
   Register(regForm: any) {
-    var fname = regForm.controls.firstname.value;
-    var lname = regForm.controls.lastname.value;
-    var email = regForm.controls.email.value;
-    console.log(fname+' '+lname+' '+email);
+    this.fname = regForm.controls.firstname.value;
+    this.lname = regForm.controls.lastname.value;
+    this.email = regForm.controls.email.value;
+    this.num = regForm.controls.number.value;
+    console.log(this.fname+' '+this.lname+' '+this.email+' '+this.num);
   }
 
 }
