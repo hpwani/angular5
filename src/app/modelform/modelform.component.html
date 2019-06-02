@@ -4,8 +4,15 @@
         <div class="row">
             <div class="form-bg">
                 <form [formGroup]='signupform' (ngSubmit)="postData(signupform)">
-                    <div class="form-group">
+                    <div class="form-group" [ngClass]="{'has-error' : signupform.get('fname').errors &&
+                    (signupform.get('fname').ng-touched || signupform.get('fname').dirty)}">
                         <input type="text" formControlName="fname" placeholder="First Name">
+                        <div class="help-block" *ngIf="signupform.get('fname').errors &&
+                        (signupform.get('fname').touched || signupform.get('fname').dirty)">
+                            <div *ngIf="signupform.get('fname').errors">
+                                Name is Required
+                            </div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <input type="text" formControlName="lname" placeholder="Last Name">
@@ -17,7 +24,7 @@
                         <input type="password" formControlName="userpassword" placeholder="Your Password">
                     </div>
                     <div>
-                        <input type="submit" value="Post Data">
+                        <input type="submit" value="Post Data" [disabled]="!signupform.valid">
                     </div>
                 </form>
             </div>
