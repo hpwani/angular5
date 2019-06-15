@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, NgForm, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, NgForm, Validators, FormArray } from '@angular/forms';
 import { formsignup } from './formsignup';
 
 @Component({
@@ -15,6 +15,7 @@ export class ModelformComponent implements OnInit {
   Email: string;
   Password: string;
   data: any;
+
 
   constructor(private frmbuilder: FormBuilder) {
     // this.signupform = frmbuilder.group({
@@ -34,28 +35,45 @@ export class ModelformComponent implements OnInit {
   ngOnInit() {
     // this.signupform.get('fname').valueChanges.subscribe(
     //   uname => {
-    //     console.log('fname chnaged: '+ uname);
+    //     console.log('fname changed: '+ uname);
     //   }
     // );
 
-    // this.signupform.valueChanges.subscribe((userdata:formsignup)=>{
-    //   console.log('fname chnaged: '+ userdata.fname);
-    //   console.log('lname chnaged: '+ userdata.lname);
-    //   console.log('emailID chnaged: '+ userdata.emailid);
-    //   console.log('Password chnaged: '+ userdata.userpassword);
+    // this.signupform.valueChanges.subscribe((userdata: formsignup) => {
+    //   console.log('fname changed: '+ userdata.fname);
+    //   console.log('lname changed: '+ userdata.lname);
+    //   console.log('emailID changed: '+ userdata.emailid);
+    //   console.log('Password changed: '+ userdata.userpassword);
     // });
 
     // this.signupform.get('fname').statusChanges.subscribe(
     //     status => {
-    //       console.log('fname status chnaged: '+ status);
+    //       console.log('fname status changed: '+ status);
     //     }
     //   );
 
-    this.signupform.statusChanges.subscribe(
-      status => {
-        console.log('Form status chnaged: '+ status);
-      }
-    );
+    /*----------whole form status---------*/
+    // this.signupform.statusChanges.subscribe(
+    //   status => {
+    //     console.log('Form status changed: ' + status);
+    //   }
+    // );
+
+    /*===========formArray===================== */
+    const arr = new FormArray([
+      new FormControl(),
+      new FormControl()
+    ]);
+    arr.setValue(['Dipak','Kunal']);
+    console.log('Set Value: ' + arr.value);
+    arr.patchValue(['Ravi']);
+    // alert('Processed...');
+    console.log('Patch Value: '+ arr.value);
+    console.log(arr.status);
+    // alert('Reset...');
+    arr.reset(['First Name', 'Last Name']);
+    console.log(arr.value);
+    console.log(arr.status);
   }
 
   postData(signupform: any) {
@@ -68,7 +86,7 @@ export class ModelformComponent implements OnInit {
     console.log(this.data);
     console.log(this.signupform.value);
   }
-  resetData(){
+  resetData() {
     this.signupform.reset({fname: 'Admin'});
   }
   filldata(){
@@ -79,13 +97,11 @@ export class ModelformComponent implements OnInit {
       "userpassword":"hjsyre123"
     });
   }
-  fillvalue(){
+  fillvalue() {
     this.signupform.patchValue({
       "fname":"Pranit",
       "lname":"Pande",
       "userpassword":"hjsyre123"
     });
   }
-
-
 }

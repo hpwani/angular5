@@ -1,3 +1,13 @@
-<p>
-  home works!
-</p>
+<body>
+    <h1>Nested Form</h1>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div formArrayName="ContactNos">
+            <div *ngFor="let contact of form.controls.ContactNos.controls; index as i">
+                <input type="text" [formControlName]="i" placeholder="Contact No">
+            </div>
+        </div>
+        <button>Submit</button>
+    </form>
+    <button (click)="addContactNo()">Add New Contact No</button>
+    <button (click)="setPreset()">Reset</button>
+</body>
