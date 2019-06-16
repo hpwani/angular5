@@ -1,13 +1,51 @@
 <body>
-    <h1>Nested Form</h1>
-    <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <div formArrayName="ContactNos">
-            <div *ngFor="let contact of form.controls.ContactNos.controls; index as i">
-                <input type="text" [formControlName]="i" placeholder="Contact No">
+    <div id="firstRow">
+        <h2>Nested Form</h2>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div formArrayName="ContactNos">
+                <div *ngFor="let contact of form.controls.ContactNos.controls; index as i">
+                    <input type="text" [formControlName]="i" placeholder="Contact No">
+                </div>
             </div>
-        </div>
-        <button>Submit</button>
-    </form>
-    <button (click)="addContactNo()">Add New Contact No</button>
-    <button (click)="setPreset()">Reset</button>
+            <button>Submit</button>
+        </form>
+        <button (click)="addContactNo()">Add New Contact No</button>
+        <button (click)="setPreset()">Reset</button>
+        <button (click)="fillData()">Fill Data</button>
+    </div>
+    <div id="secondRow">
+        <h2>Form Details</h2>
+        <form novalidate [formGroup]="frmGrp" (ngSubmit)="submit()">
+            <div class="col-x-12 from-group marL40">
+                <div formGroupName="itemRows">
+                    <ng-container *ngIf='frmGrp.controls.itemRows!=null'>
+                        <div *ngFor='let itemRows of frmGrp.controls.itemRows.controls; let i=index' [formGroupName]="i">
+                            <div class="row">
+                                <div class="col-md-2 form-group">
+                                    <input matinput placeholder="Name" formControlName="Name">
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <input matinput placeholder="RollNo" formControlName="RollNo">
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <input matinput placeholder="Class" formControlName="Class">
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <input matinput placeholder="MobileNo" formControlName="MobileNo">
+                                </div>
+                                <div class="col-md-2 form-group">
+                                    <button (click)="deleteRow(i)" class="btn btn-danger">X</button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <div class="form-group">
+                        <button (click)="addNewRow()" [disabled]="frmGrp.invalid" class="btn btn-primary">Add Row</button>
+                    </div>
+                </div>
+            </div>
+            <button>Submit</button>
+        </form>
+        <button (click)="reSet()">Reset</button>
+    </div>
 </body>
