@@ -1,3 +1,5 @@
+import { NgForm } from '@angular/forms';
+import { User } from './user';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -10,7 +12,32 @@ export class TemplateformComponent implements OnInit {
   lname: string;
   email: string;
   num: string;
+  // user = new User();
   constructor() { }
+
+  // onFormSubmit(form: NgForm) {
+  //   if (form.invalid) {
+  //     return;
+  //   }
+  //   console.log("Username: " + form.controls['uname'].value);
+  //   console.log("Gender: " + form.controls['gender'].value);
+  //   console.log("married: " + form.controls['married'].value);
+  //   console.log("T & C: " + form.controls['tc'].value);
+  // }
+
+  // resetForm(form: NgForm) {
+  //   this.user = new User();
+  //   form.resetForm({
+  //     marride: false
+  //   });
+  // }
+
+  // setDefaultValues() {
+  //   this.user.username = "Hemant";
+  //   this.user.gender = "male";
+  //   this.user.ismarried = false;
+  //   this.user.isTCAccepted = true;
+  // }
 
   ngOnInit() {
   }

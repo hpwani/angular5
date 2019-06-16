@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <body>
     <h1>Template Form</h1>
     <div class="container">
@@ -26,4 +28,50 @@
             </div>
         </div>
     </div>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="form-bg">
+                <form #userForm='ngForm' (ngSubmit)="onFormSubmit(userForm)">
+                    <h2>Registration Form</h2><br>
+                    <table>
+                        <tr>
+                            <td>Name: </td>
+                            <td>
+                                <input name="uname" [ngModel]="user.username" reqired #uname="ngModel">
+                                <div *ngIf="uname.invalid">Name required</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Gender: </td>
+                            <td>
+                                <input type="redio" value="male" name="gender" [ngModel]="user.gender" required #gender="ngModel">Male
+                                <input type="redio" value="femail" name="gender" [ngModel]="user.gender" required #gender="ngModel">Female
+                                <div *ngIf="gender.invalid">Gneder required</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Are You Married?</td>
+                            <td>
+                                <input type="checkbox" name="married" [ngModel]="user.ismarried">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Accept T & C</td>
+                            <td>
+                                <input type="checkbox" name="tc" [ngModel]="user.isTCAccepted" required #tc="ngModel">
+                                <div *ngIf="tc.invalid">Please Accept T & C</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2">
+                                <button>Submit</button>
+                                <button type="button" (cli ck)="setDefaultValues()">Set Default</button>
+                                <button type="button" (click)="resetForm(userForm)">Reset</button>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div> -->
 </body>
