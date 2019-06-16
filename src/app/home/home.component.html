@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 <body>
     <div id="firstRow">
         <h2>Nested Form</h2>
@@ -47,5 +49,18 @@
             <button>Submit</button>
         </form>
         <button (click)="reSet()">Reset</button>
+    </div>
+    <div id="thirdRow">
+        <h2>Nested Form Group</h2>
+        <form [formGroup]="frm" (ngSubmit)="sub()">
+            <p *ngIf="frm.controls.name.invalid">Name is Invalid</p>
+            <div [formGroupName]="name">
+                <input formControlName="first" placeholder="First Name">
+                <input formControlName="last" placeholder="Last Name">
+            </div>
+            <input formControlName="email" placeholder="Email">
+            <button>Submit</button>
+        </form>
+        <button (click)="update()">Reset</button>
     </div>
 </body>

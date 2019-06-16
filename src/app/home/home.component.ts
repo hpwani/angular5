@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, FormArray, FormBuilder, NgControlStatus } from '@angular/forms';
+import { FormControl, FormGroup, FormArray, FormBuilder, NgControlStatus, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -13,6 +13,25 @@ export class HomeComponent implements OnInit {
   TotalRow: number;
 
   constructor(private _fb: FormBuilder) { }
+
+  frm = new FormGroup({
+    name: new FormGroup({
+      first: new FormControl('Hemant', Validators.required),
+      last: new FormControl('Wani', Validators.required),
+    }),
+    email: new FormControl()
+  });
+
+  sub() {
+    console.log(this.frm.get('name.first').value);
+    console.log(this.frm.get('name.last').value);
+    console.log(this.frm.value);
+    console.log(this.frm.status);
+    console.log(this.frm.get('name').value);
+  }
+  update() {
+    this.frm.get('name').setValue({first: 'Raj', last: 'Patil'});
+  }
 
   ngOnInit(): void {
     this.form = new FormGroup({
