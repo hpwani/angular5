@@ -9,8 +9,10 @@ import { ModelformComponent } from './modelform/modelform.component';
 import { FormsComponent } from './forms/forms.component';
 import { HomeComponent } from './home/home.component';
 import { from } from 'rxjs';
-import { CompanyRoutingModule } from './company/company-routing.module';
-import { CompanyModule } from './company/company.module';
+// import { CompanyRoutingModule } from './company/company-routing.module';
+// import { CompanyModule } from './company/company.module';
+
+
 
 
 
@@ -27,10 +29,13 @@ import { CompanyModule } from './company/company.module';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CompanyRoutingModule,
-    CompanyModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor() {
+    console.log('App Module Loaded');
+  }
+ }
