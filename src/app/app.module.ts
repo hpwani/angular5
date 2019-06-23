@@ -8,6 +8,11 @@ import { TemplateformComponent } from './templateform/templateform.component';
 import { ModelformComponent } from './modelform/modelform.component';
 import { FormsComponent } from './forms/forms.component';
 import { HomeComponent } from './home/home.component';
+import { from } from 'rxjs';
+import { CompanyRoutingModule } from './company/company-routing.module';
+import { CompanyModule } from './company/company.module';
+
+
 
 @NgModule({
   declarations: [
@@ -15,13 +20,15 @@ import { HomeComponent } from './home/home.component';
     TemplateformComponent,
     ModelformComponent,
     FormsComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CompanyRoutingModule,
+    CompanyModule
   ],
   providers: [],
   bootstrap: [AppComponent]
