@@ -9,6 +9,9 @@ import { ModelformComponent } from './modelform/modelform.component';
 import { FormsComponent } from './forms/forms.component';
 import { HomeComponent } from './home/home.component';
 import { from } from 'rxjs';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 // import { CompanyRoutingModule } from './company/company-routing.module';
 // import { CompanyModule } from './company/company.module';
 
@@ -23,13 +26,16 @@ import { from } from 'rxjs';
     ModelformComponent,
     FormsComponent,
     HomeComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-
+    NgbModule,
+    NgbPaginationModule,
+    NgbAlertModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,9 +25,36 @@
         </ul>
     </div>
 </nav>
+
+<div class="col-12">
+    <div>
+        <label for="" class="form-label">Fruits</label>
+    </div>
+    <div class="form-check form-check-inline" *ngFor="let control of fruitsArray.controls; let i = index;">
+        <input type="checkbox" id="inlineCheckbox{{i}}" [formControl]="control" (change)="getselectedFruitValues()" class="form-check-input">
+        <label for="inlineCheckbox{{i}}" class="form-check-label">{{fruits[i]}}</label>
+    </div>
+    <div>
+        <small id="fnHelp" *ngIf="favFruitError && checkFruitControlsTouched()" class="form-text custom-invalid-feedback"> Atleast choose one</small>
+    </div>
+</div>
+
 <h1>
     {{title}}
 </h1>
-<a [routerLink]="['/company']">Company</a>
+
+<h2>Select All</h2>
+
+<label for="lbl" class="btn btn-filter">
+  <input type="checkbox" name="allNonTrades" [value]="nontrade" id="lbl" (change)="allNonTrades($event)"> Select All
+</label>
+<ng-container *ngFor="let ntrd of nontrade">
+    <label for="lbl2" class="btn btn-filter">
+    <input type="checkbox" name="nontrades" [checked]="ntrd.selected" (change)="changeTradeByCategory($event)">&nbsp;{{ntrd.label}}
+  </label>&nbsp;
+</ng-container>
+
+
+<!-- <a [routerLink]="['/company']">Company</a> -->
 <!-- add the selector from the CustomerDashboardComponent -->
 <router-outlet></router-outlet>

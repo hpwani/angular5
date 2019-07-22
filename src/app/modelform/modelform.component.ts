@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, NgForm, Validators, FormArray } from '@angular/forms';
 import { formsignup } from './formsignup';
+import { ConfirmationDialogService } from '../confirmation-dialog/confirmation-dialog.service';
 
 @Component({
   selector: 'app-modelform',
@@ -17,7 +18,8 @@ export class ModelformComponent implements OnInit {
   data: any;
 
 
-  constructor(private frmbuilder: FormBuilder) {
+  constructor(private frmbuilder: FormBuilder,
+              private confirmationDialogService: ConfirmationDialogService) {
     // this.signupform = frmbuilder.group({
     //   fname: new FormControl(),
     //   lname: new FormControl(),
@@ -103,5 +105,11 @@ export class ModelformComponent implements OnInit {
       "lname":"Pande",
       "userpassword":"hjsyre123"
     });
+  }
+
+  public openConfirmationDialog() {
+    this.confirmationDialogService.confirm('Please confirm..', 'Do you really want to ... ?')
+    .then((confirmed) => console.log('User confirmed:', confirmed))
+    .catch(() => console.log('User dismissed the dialog (e.g., by using ESC, clicking the cross icon, or clicking outside the dialog)'));
   }
 }
